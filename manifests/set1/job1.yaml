@@ -11,8 +11,6 @@ spec:
     spec:
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      serviceAccount: cli-job-sa
-      serviceAccountName: cli-job-sa
       terminationGracePeriodSeconds: 30
       containers:
         - image: quay.io/sfhassan/oc_net_tools 
