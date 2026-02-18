@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: pod
+  name: pod
+  namespace: first-gitops-space
+spec:
+  containers:
+  - image: quay.io/sfhassan/oc_net_tools
+    name: pod

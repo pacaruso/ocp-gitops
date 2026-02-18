@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "103"
+  name: testjob1
+  namespace: argotest2
+spec:
+  template:
+    spec:
+      dnsPolicy: ClusterFirst
+      restartPolicy: OnFailure
+      terminationGracePeriodSeconds: 30
+      containers:
+        - image: quay.io/sfhassan/newtools
+          name: testjob1
+          command:
+            - /bin/bash
+            - -c
+            - |
+              while true; do echo "hello"; sleep 10; done
