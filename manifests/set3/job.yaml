@@ -4,10 +4,9 @@ metadata:
   name: bash-ready-job
   namespace: test-job
   annotations:
-    # Definisce questa risorsa come un Hook di Argo CD
     argocd.argoproj.io/hook: PreSync
-    # Opzionale: elimina il Job automaticamente dopo che è terminato con successo
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+    argocd.argoproj.io/sync-options: ApplyOutOfSyncOnly=true
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   # Numero di tentativi in caso di fallimento
   backoffLimit: 2 
