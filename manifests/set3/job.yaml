@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: bash-ready-job-v1.0.2
+  name: bash-ready-job-v1.0.3
   namespace: test-job
   annotations:
     #argocd.argoproj.io/hook: PreSync
