@@ -103,7 +103,7 @@ The GitOps Operator defines a CR called "Applications". Applications are used to
 > **TIP** OpenShift GitOps Operator is the productized version of "ArgoCD". Hence the terms are used interchangeably
 
 ### Your first application: 
-Let's create a simple application that will create a namespace and run a pod in that namespace. The manifests for these have already been defined [here](https://github.com/git-shassan/ocp-gitops/tree/main/manifests/set0). All the application has to do is point to the repository and let GitOps do its magic. Create the application as shown here:
+Let's create a simple application that will create a namespace and run a pod in that namespace. The manifests for these have already been defined [here](https://github.com/pacaruso/ocp-gitops/tree/main/manifests/set0). All the application has to do is point to the repository and let GitOps do its magic. Create the application as shown here:
 
 ```
 cat << EOF | oc apply -f -
@@ -121,7 +121,7 @@ spec:
     directory:
       recurse: true
     path: manifests/set0
-    repoURL: https://github.com/git-shassan/ocp-gitops.git
+    repoURL: https://github.com/pacaruso/ocp-gitops.git
     targetRevision: main
   syncPolicy:
     automated:
@@ -195,7 +195,7 @@ The purpose of the phase types is:
 
 The following figure demonstrates this concept visually: 
 
-<img width="389" alt="image" src="https://github.com/git-shassan/ocp-gitops/assets/84737596/f3382698-6962-4d48-a466-1fa89b7b9a0b">
+<img width="389" alt="image" src="https://github.com/pacaruso/ocp-gitops/assets/84737596/f3382698-6962-4d48-a466-1fa89b7b9a0b">
 
 (Figure sourced from this ![site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
 
@@ -214,7 +214,7 @@ Argo CD won’t apply the next manifest until the previous reports are "healthy"
 
 The following figure demonstrates this concept visually: 
 
-<img width="315" alt="image" src="https://github.com/git-shassan/ocp-gitops/assets/84737596/21192d7c-4507-4d35-8972-128c93d2c378">
+<img width="315" alt="image" src="https://github.com/pacaruso/ocp-gitops/assets/84737596/21192d7c-4507-4d35-8972-128c93d2c378">
 
 (Figure sourced from this ![site](https://redhat-scholars.github.io/argocd-tutorial/argocd-tutorial/04-syncwaves-hooks.html))
 
@@ -241,7 +241,7 @@ spec:
     directory:
       recurse: true
     path: manifests/set1
-    repoURL: https://github.com/git-shassan/ocp-gitops.git
+    repoURL: https://github.com/pacaruso/ocp-gitops.git
     targetRevision: main
   syncPolicy:
     automated:
@@ -318,7 +318,7 @@ spec:
     directory:
       recurse: true
     path: manifests/set2
-    repoURL: https://github.com/git-shassan/ocp-gitops.git
+    repoURL: https://github.com/pacaruso/ocp-gitops.git
     targetRevision: main
   syncPolicy:
     automated:

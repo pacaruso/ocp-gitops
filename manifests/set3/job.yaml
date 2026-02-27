@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: bash-ready-job
+  namespace: test-job
+  annotations:
+    # Definisce questa risorsa come un Hook di Argo CD
+    argocd.argoproj.io/hook: PreSync
+    # Opzionale: elimina il Job automaticamente dopo che è terminato con successo
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  # Numero di tentativi in caso di fallimento
+  backoffLimit: 2 
+  template:
+    spec:
+      containers:
+      - name: bash-worker
+        image: image-registry.openshift-image-registry.svc:5000/openshift/tools:latest
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            echo "Waiting to be ready...";
+            sleep 10;
+            echo "Ready!";
+      # Fondamentale per i Job: non deve riavviarsi se termina con successo
+      restartPolicy: Never
