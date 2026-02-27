@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-options: ApplyOutOfSyncOnly=true
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 spec:
   # Numero di tentativi in caso di fallimento
   backoffLimit: 2 
