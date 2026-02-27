@@ -6,6 +6,8 @@ metadata:
     app.kubernetes.io/instance: ebc-multicloud-gitops-hub
   name: experiment-app3
   namespace: openshift-gitops
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
    server: 'https://kubernetes.default.svc'

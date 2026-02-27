@@ -5,8 +5,8 @@ metadata:
   namespace: test-job
   annotations:
     argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/sync-options: ApplyOutOfSyncOnly=true
-    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
+    #argocd.argoproj.io/sync-options: ApplyOutOfSyncOnly=true
+    #argocd.argoproj.io/hook-delete-policy: BeforeHookCreation
 spec:
   # Numero di tentativi in caso di fallimento
   backoffLimit: 2 
