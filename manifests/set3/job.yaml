@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: bash-ready-job
+  name: bash-ready-job-v1.0.1
   namespace: test-job
   annotations:
     #argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "1"
-    argocd.argoproj.io/sync-options: Replace=true,Force=true,ApplyOutOfSyncOnly=true
+    #argocd.argoproj.io/sync-options: Replace=true,Force=true,ApplyOutOfSyncOnly=true
 spec:
   # Numero di tentativi in caso di fallimento
   backoffLimit: 2 
@@ -14,9 +14,6 @@ spec:
     spec:
       containers:
       - name: bash-worker
-        env:
-          - name: VERSION
-            value: v1.0.1
         image: image-registry.openshift-image-registry.svc:5000/openshift/tools:latest
         command: ["/bin/bash", "-c"]
         args:
