@@ -3,6 +3,9 @@ apiVersion: apps/v1
 metadata:
   name: test-httpd
   namespace: test-job
+  annotations:
+    #argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   replicas: 1
   selector:
